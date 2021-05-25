@@ -1,0 +1,18 @@
+
+
+INSERT_UPDATE ServicelayerJob ;code[unique=true];springId
+                              ;currentNumberOfUsersJob;currentNumberOfUsersJob
+
+INSERT_UPDATE CurrentNumberOfUsersCronJob ;code[unique=true];job(code);sessionLanguage(isocode)[default=en];sessionCurrency(isocode)[default=EUR]
+                                          ;currentNumberOfUsersCronJob;currentNumberOfUsersJob
+
+INSERT_UPDATE Trigger ;cronJob(code)[unique=true];cronExpression
+                      ;currentNumberOfUsersCronJob;0 0/2 * 1/1 * ? *
+
+
+INSERT_UPDATE CompositeEntry ;code[unique=true];executableCronJob(code);
+                             ;currentNumberOfOrdersEntry;currentNumberOfOrdersCronJob
+                             ;currentNumberOfUsersEntry;currentNumberOfUsersCronJob
+
+INSERT_UPDATE CompositeCronJob ;code[unique=true];job(code);compositeEntries(code);sessionUser(uid)[default=admin];sessionLanguage(isocode)[default=en]
+                               ;myCompositeCronJob;compositeJobPerformable;currentNumberOfOrdersEntry, currentNumberOfUsersEntry

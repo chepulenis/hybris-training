@@ -1,0 +1,36 @@
+INSERT_UPDATE DynamicProcessDefinition;code[unique=true];active;content
+                                      ;placeorder;true;"<?xml version="1.0" encoding="utf-8"?>
+<process xmlns="http://www.hybris.de/xsd/processdefinition" start="addOrderNode" name="placeorder">
+
+    <action id="addOrderNode" bean="addOrderNode">
+        <transition name="OK" to="waitNodeOne"/>
+        <transition name="NOK" to="failed"/>
+    </action>
+
+    <wait id="waitNodeOne" then="nothingSelected" prependProcessCode="false">
+        <case event="eventWithChoice">
+            <choice id="remove_order" then="productRemovedNode"/>
+            <choice id="place_order" then="productOrderedNode"/>
+        </case>
+    </wait>
+
+    <action id="productRemovedNode" bean="productRemovedNode">
+        <transition name="OK" to="success"/>
+        <transition name="NOK" to="failed"/>
+    </action>
+
+    <action id="productOrderedNode" bean="productOrderedNode">
+        <transition name="OK" to="success"/>
+        <transition name="NOK" to="failed"/>
+    </action>
+
+    <action id="nothingSelected" bean="nothingSelected">
+        <transition name="OK" to="waitNodeOne"/>
+        <transition name="NOK" to="failed"/>
+    </action>
+
+    <end id="error" state="ERROR">All went wrong.</end>
+    <end id="failed" state="FAILED">Order not placed.</end>
+    <end id="success" state="SUCCEEDED">Order placed.</end>
+
+</process>"

@@ -6,7 +6,7 @@
 	xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widgets.xsd">
 
     <widget-extension widgetId="backofficeMainSlot">
-        <widget id="mywidgetextension-perspective" widgetDefinitionId="training.my.widgets.mywidgetextensionwidget"
+        <widget id="mywidgetextension-perspective" widgetDefinitionId="my.training.widgets.mywidgetextensionwidget"
             template="false" slotId="perspectives" title="Hello mywidgetextension">
             <setting key="perspectiveImageUrl" value="/cng/images/perspective.png"
                 type="String" />

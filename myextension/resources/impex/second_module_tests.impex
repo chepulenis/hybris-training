@@ -1,0 +1,21 @@
+#Add a service that will return the total number of orders, the latest order and a user with the most orders. Cover this class with unit tests.
+#Write integration tests to the previous class
+
+INSERT_UPDATE User; uid[unique=true]; @password[translator=de.hybris.platform.impex.jalo.translators.UserPasswordTranslator]; age
+                  ;user1;blablablablablabla; 33
+INSERT_UPDATE User; uid[unique=true]; @password[translator=de.hybris.platform.impex.jalo.translators.UserPasswordTranslator]; age
+                  ;user2;blablablablablablablabla; 25
+
+INSERT_UPDATE Currency;isocode[unique=true];conversion;digits[numberformat==#.###];symbol
+                      ;ABC;1;24.953,87;kr
+
+INSERT_UPDATE Order;code[unique=true];user(uid);date[dateformat=dd.MM.yyyy HH:mm];currency(isocode)
+                   ;SampleOrder1;user1;17.03.2006 10:58;ABC
+INSERT_UPDATE Order;code[unique=true];user(uid);date[dateformat=dd.MM.yyyy HH:mm];currency(isocode)
+                   ;SampleOrder2;user2;17.02.2006 10:58;ABC
+INSERT_UPDATE Order;code[unique=true];user(uid);date[dateformat=dd.MM.yyyy HH:mm];currency(isocode)
+                   ;SampleOrder3;user1;17.01.2006 10:58;ABC
+INSERT_UPDATE Order;code[unique=true];user(uid);date[dateformat=dd.MM.yyyy HH:mm];currency(isocode)
+                   ;SampleOrder4;user1;17.09.2006 10:58;ABC
+INSERT_UPDATE Order;code[unique=true];user(uid);date[dateformat=dd.MM.yyyy HH:mm];currency(isocode)
+                   ;SampleOrder5;user2;17.07.2006 10:58;ABC

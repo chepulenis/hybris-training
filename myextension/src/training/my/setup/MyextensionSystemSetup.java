@@ -3,14 +3,13 @@
  */
 package training.my.setup;
 
-import static training.my.constants.MyextensionConstants.PLATFORM_LOGO_CODE;
-
 import de.hybris.platform.core.initialization.SystemSetup;
+import training.my.constants.MyextensionConstants;
+import training.my.service.MyextensionService;
 
 import java.io.InputStream;
 
-import training.my.constants.MyextensionConstants;
-import training.my.service.MyextensionService;
+import static training.my.constants.MyextensionConstants.PLATFORM_LOGO_CODE;
 
 
 @SystemSetup(extension = MyextensionConstants.EXTENSIONNAME)

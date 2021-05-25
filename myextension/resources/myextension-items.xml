@@ -1,40 +1,94 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!--
- Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
--->
-<!--
-	ATTENTION: This is just an example file. You have to edit it according to your needs.
--->
 
-<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-			xsi:noNamespaceSchemaLocation="items.xsd">
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="items.xsd">
 
-	<itemtypes>
-<!--
-		<itemtype generate="true"
-		   code="MyProduct"
-		   jaloclass="training.my.jalo.MyProduct"
-		   extends="Product"
-		   autocreate="true"
-	   >
-			<attributes>
-				<attribute qualifier="myExampleInitialStringField" type="java.lang.String">
-					<description>My Example Initial String Value</description>
-					<modifiers initial="true"/>
-					<persistence type="property"/>
-				</attribute>
 
-				<attribute qualifier="myExampleBooleanField" type="java.lang.Boolean">
-					<description>Example Initial Boolean Field</description>
-               <persistence type="property"/>
-				</attribute>
+    <relations>
+        <relation code="Films2Actors" localized="false" autocreate="true">
+            <deployment table="Films2Actors" typecode="12000"/>
+            <sourceElement type="Film" qualifier="film" collectiontype="set" cardinality="many" ordered="false">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement type="Actor" qualifier="actor" collectiontype="set" cardinality="many" ordered="false">
+                <modifiers read="true" write="true" search="true"/>
+            </targetElement>
+        </relation>
 
-				<attribute qualifier="media" type="Media">
-					<persistence type="property"/>
-				</attribute>
+    </relations>
 
-			</attributes>
-		</itemtype>
--->
-	</itemtypes>
+    <itemtypes>
+
+        <itemtype code="Film"
+                  extends="Product">
+            <attributes>
+                <attribute qualifier="title" type="java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="duration" type="java.lang.Integer">
+                    <persistence type="property"/>
+                </attribute>
+
+            </attributes>
+        </itemtype>
+
+        <itemtype code="Actor"
+                  extends="Product">
+            <attributes>
+                <attribute qualifier="firstName" type="java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="lastName" type="java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="age" type="java.lang.Integer">
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="CarProduct"
+                  extends="Product">
+            <attributes>
+                <attribute qualifier="color" type="java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="weight" type="java.lang.Double">
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="User" extends="Principal" autocreate="false" generate="true">
+            <attributes>
+                <attribute qualifier="age" type="java.lang.Integer">
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="CurrentNumberOfOrdersCronJob"
+                  jaloclass="de.hybris.cronjobtutorial.jalo.CurrentNumberOfOrdersCronJob"
+                  extends="CronJob">
+        </itemtype>
+
+        <itemtype code="CurrentNumberOfUsersCronJob"
+                  jaloclass="de.hybris.cronjobtutorial.jalo.CurrentNumberOfUsersCronJob"
+                  extends="CronJob">
+        </itemtype>
+
+        <itemtype code="UserAgeUnder21Constraint" autocreate="true" generate="true" extends="AttributeConstraint"
+                  jaloclass="training.my.validation.UserAgeUnder21Constraint"
+                  singleton="false" jaloonly="false">
+            <attributes>
+                <attribute qualifier="annotation" type="java.lang.Class" redeclare="true" generate="true" autocreate="true">
+                    <persistence type="property" qualifier=""/>
+                    <modifiers read="true" write="false" search="true" encrypted="false" optional="true" removable="true" initial="true" unique="false" private="false" partof="false"/>
+                    <defaultvalue>training.my.validation.UserAgeUnder21.class</defaultvalue>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+    </itemtypes>
 </items>
+

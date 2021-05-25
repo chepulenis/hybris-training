@@ -2,12 +2,47 @@
 <!--
  Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved
 -->
-<config xmlns="http://www.hybris.com/cockpit/config">
+<config xmlns="http://www.hybris.com/cockpit/config"
+        xmlns:simple-search="http://www.hybris.com/cockpitng/config/simplesearch"
+>
 
-	<!-- mywidgetextension UI configuration should be provided here -->
 
-	<!--<context component="component-code" module="mywidgetextension">-->
-		<!--Please check documentation for code snippets for specific components-->
-	<!--</context>-->
+	<context component="explorer-tree" merge-by="module">
+		<bo:explorer-tree xmlns:bo="http://www.hybris.com/cockpitng/config/explorertree">
+			<bo:navigation-node id="CarDriverModule">
+				<bo:type-node id="Driver" code="Driver" />
+				<bo:type-node id="Car" code="Car" />
+			</bo:navigation-node>
+		</bo:explorer-tree>
+	</context>
+	<context type="Driver" component="listview">
+		<list:list-view xmlns:list="http://www.hybris.com/cockpitng/component/listView">
+			<list:column qualifier="name"/>
+			<list:column qualifier="birthDate"/>
+			<list:column qualifier="cars"/>
+		</list:list-view>
+	</context>
+	<context type="Car" component="listview">
+		<list:list-view xmlns:list="http://www.hybris.com/cockpitng/component/listView">
+			<list:column qualifier="name"/>
+			<list:column qualifier="color"/>
+			<list:column qualifier="year"/>
+			<list:column qualifier="drivers"/>
+		</list:list-view>
+	</context>
+
+	<context type="Driver" component="simple-search">
+		<simple-search:simple-search xmlns:simple-search="http://www.hybris.com/cockpitng/config/simplesearch">
+			<simple-search:field name="name"/>
+		</simple-search:simple-search>
+	</context>
+
+
+
+	<context type="Car" component="simple-search">
+		<simple-search:simple-search xmlns:simple-search="http://www.hybris.com/cockpitng/config/simplesearch">
+			<simple-search:field name="color"/>
+		</simple-search:simple-search>
+	</context>
 
 </config>

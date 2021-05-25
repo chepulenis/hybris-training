@@ -1,15 +1,13 @@
 /*
  * Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved
  */
-package training.my.widgets;
+package my.training.widgets;
 
+import com.hybris.cockpitng.util.DefaultWidgetController;
+import my.training.services.MywidgetextensionService;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.annotation.WireVariable;
 import org.zkoss.zul.Label;
-
-import com.hybris.cockpitng.util.DefaultWidgetController;
-
-import training.my.services.MywidgetextensionService;
 
 
 public class MywidgetextensionController extends DefaultWidgetController
