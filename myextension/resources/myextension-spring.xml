@@ -87,4 +87,23 @@
         <property name="resource" value="classpath:/process/placeorder.xml"/>
     </bean>
 
+    <bean id="HybrisTransaction" class="training.my.transaction.HybrisTransaction"/>
+
+    <bean id="SpringTransaction" class="training.my.transaction.SpringTransaction"/>
+
+    <bean name="myCacheRegion" class="de.hybris.platform.regioncache.region.impl.EHCacheRegion">
+        <constructor-arg name="name" value="productCacheRegion" />
+        <constructor-arg name="maxEntries" value="30000" />
+        <constructor-arg name="evictionPolicy" value="LRU" />
+        <property name="handledTypes">
+            <array>
+                <value>1</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="myCacheRegionRegistrar" class="de.hybris.platform.regioncache.region.CacheRegionRegistrar">
+        <constructor-arg ref="myCacheRegion"/>
+    </bean>
+
 </beans>
