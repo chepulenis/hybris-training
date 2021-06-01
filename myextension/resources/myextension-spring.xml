@@ -3,73 +3,9 @@
  Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans.xsd
-           http://www.springframework.org/schema/aop
-           http://www.springframework.org/schema/aop/spring-aop.xsd">
-
-	<!--
-	The hybris platform provides one single Spring application context for beans located at the jalo layer.
-	Each extension can add beans to this context by specifying them at this configuration file.
-	 
-	You can use and/or redefine beans defined at configuration files of other extensions as well as
-	adding new one.
-		
-	If you want to locate this file at a different location or want to use several files for better,
-	structuring, please use the '<yourextension>.application-context' property at your project.properties file.
-	There you can specify a comma separated list of files where first is tried to find a file per classpath and
-	then per file system.
-
-	
-	If you want to configure beans for your web module please have a look at
-	your web/webroot/WEB-INF/<extname>-web-spring.xml.
-	-->
-	
-	<!--  Example how to override a manager -->
-	<!--
-	<bean id="core.productManager"   class="training.my.jalo.MyextensionProductManager" 	init-method="init"	destroy-method="destroy" />
-	-->
-	
-	
- 	<!--  Example how to configure the class to use for jalo session creation -->
-	<!--
-	<bean id="jalosession"   class="de.hybris.platform.jalo.JaloSessionFactory">
-		<property name="targetClassName" value="training.my.jalo.MyextensionJaloSession"/>
-	</bean>
-	-->
-
-	
-	<!--  Example how to override an item  -->
-	<!-- 
-	<bean id="de.hybris.platform.jalo.product.Product" class="training.my.jalo.MyextensionProduct" scope="prototype" />		
- 	-->
-
-	<!--  
-	 Example how to register and use an AOP aspect 
-     Also see http://static.springframework.org/spring/docs/2.5.x/reference/aop.html	
-     -->
-	
-	<!-- 
-	<bean id="myextensionProfBean" class="training.my.aop.MyextensionProfilingAspect"/>
-	<aop:config proxy-target-class="true">
-  		<aop:aspect id="myextensionProfAspect" ref="myextensionProfBean" >
-    	  <aop:pointcut id="profiledMethods" 
-	      	expression="execution(* getModificationTime(..))" />  	            
-	   		<aop:around pointcut-ref="profiledMethods" method="profile" />
-  		</aop:aspect>
-	</aop:config>
-	 -->
-
-	
-	<!-- some other examples of a pointcut that matches everything:
-
-    	  <aop:pointcut id="profiledMethods" 
-	      	expression="bean(de.hybris.platform.jalo.user.Customer) &amp;&amp; 
-	      	            !execution(* getPK(..))" />  	            
-	       <aop:pointcut id="profiledMethods" expression="execution(* *(..))" />	
-	  -->
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
     <bean id="myextensionSystemSetup" class="training.my.setup.MyextensionSystemSetup">
         <!-- constructor arg injection example -->
@@ -82,5 +18,92 @@
         <property name="mediaService" ref="mediaService"/>
         <property name="flexibleSearchService" ref="flexibleSearchService"/>
     </bean>
-			
+
+    <bean name="myOrderService" class="training.my.service.impl.MyOrderServiceImpl">
+    </bean>
+
+    <bean id="configurablePopulatorModification" class="de.hybris.platform.converters.config.ConfigurablePopulatorModification" abstract="true" init-method="initialize"/>
+
+    <bean id="productFacade"
+          class="training.my.facade.impl.DefaultProductFacade">
+
+        <property name="productService" ref="productService"/>
+        <property name="priceService" ref="priceService"/>
+    </bean>
+
+    <bean id="converter" parent="abstractPopulatingConverter">
+        <property name="targetClass" value="de.hybris.platform.commercefacades.product.data.ProductData"/>
+        <property name="populators">
+            <list merge="true">
+                <ref bean="productDataPopulator" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="productDataPopulator"
+          class="training.my.populator.ProductDataPopulator">
+    </bean>
+
+    <alias name="defaultProductFacade" alias="productFacade"/>
+    <bean id="defaultResponsiveMediaFacade" class="de.hybris.platform.commercefacades.product.impl.DefaultProductFacade">
+        <property name="referenceDataProductReferenceConverter" ref="referenceDataProductReferenceConverter"/>
+        <property name="customerReviewService" ref="customerReviewService"/>
+        <property name="productConfigurationConverter" ref="defaultSolrProductConverter"/>
+        <property name="commonI18NService" ref="commonI18NService"/>
+        <property name="commerceProductReferenceService" ref="commerceProductReferenceService"/>
+        <property name="productConfiguredPopulator" ref="productConfiguredPopulator"/>
+        <property name="productService" ref="productService"/>
+        <property name="userService" ref="userService"/>
+        <property name="productConverter" ref="converter"/>
+        <property name="configurationHandlerFactory" ref="productConfigurationHandlerFactory"/>
+        <property name="modelService" ref="modelService"/>
+        <property name="referenceProductConfiguredPopulator" ref="defaultCatalogVersionPopulator"/>
+        <property name="customerReviewConverter" ref="customerReviewConverter"/>
+        <property name="configuratorSettingsService" ref="configuratorSettingsService"/>
+    </bean>
+
+
+    <bean id="userAgeBelowZeroInterceptor" class="training.my.interceptor.UserAgeBelowZeroInterceptor"
+        autowire="byName"/>
+
+    <bean id="MyValidateInterceptorMapping"
+          class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+        <property name="interceptor" ref="userAgeBelowZeroInterceptor"/>
+        <property name="typeCode" value="User"/>
+    </bean>
+
+    <bean id="myUserService" class="training.my.service.MyUserService"/>
+
+    <bean id="currentNumberOfOrdersJob" class="training.my.cronjob.CurrentNumberOfOrdersJob" parent="abstractJobPerformable"/>
+    <bean id="currentNumberOfUsersJob" class="training.my.cronjob.CurrentNumberOfUsersJob" parent="abstractJobPerformable"/>
+
+    <bean id="addOrderNode" class="training.my.action.AddOrderNode" parent="abstractAction"/>
+    <bean id="productOrderedNode" class="training.my.action.ProductOrderedNode" parent="abstractAction"/>
+    <bean id="productRemovedNode" class="training.my.action.ProductRemovedNode" parent="abstractAction"/>
+    <bean id="NothingSelected" class="training.my.action.NothingSelected" parent="abstractAction"/>
+
+
+    <bean id="placeorderProcessDefinitionResource" class="de.hybris.platform.processengine.definition.ProcessDefinitionResource">
+        <property name="resource" value="classpath:/process/placeorder.xml"/>
+    </bean>
+
+    <bean id="HybrisTransaction" class="training.my.transaction.HybrisTransaction"/>
+
+    <bean id="SpringTransaction" class="training.my.transaction.SpringTransaction"/>
+
+    <bean name="myCacheRegion" class="de.hybris.platform.regioncache.region.impl.EHCacheRegion">
+        <constructor-arg name="name" value="productCacheRegion" />
+        <constructor-arg name="maxEntries" value="30000" />
+        <constructor-arg name="evictionPolicy" value="LRU" />
+        <property name="handledTypes">
+            <array>
+                <value>1</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="myCacheRegionRegistrar" class="de.hybris.platform.regioncache.region.CacheRegionRegistrar">
+        <constructor-arg ref="myCacheRegion"/>
+    </bean>
+
 </beans>

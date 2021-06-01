@@ -1,0 +1,15 @@
+INSERT_UPDATE Car; name[unique=true]; color; year
+                 ; ferrari; green; 2004
+INSERT_UPDATE Car; name[unique=true]; color; year
+                 ; ford; blue; 2010
+INSERT_UPDATE Car; name[unique=true]; color; year
+                 ; toyota; purple; 1998
+
+INSERT_UPDATE Driver; name[unique=true]; birthDate
+                 ; Jack; 1975
+
+INSERT_UPDATE Driver; name[unique=true]; birthDate
+                    ; Robert; 1984
+
+UPDATE Car; name[unique=true]; driver(name)
+          ; toyota; Jack, Robert
