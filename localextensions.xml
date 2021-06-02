@@ -13,5 +13,15 @@
 		<extension name="myacceleratorfacades" />
 		<extension name="myacceleratortest" />
 		<extension name="myacceleratorstorefront" />
+		<extension name='cmsbackoffice' />
+		<extension name='cmssmartedit' />
+		<extension name='cmssmarteditwebservices' />
+		<extension name='cmswebservices' />
+		<extension name='npmancillary' />
+		<extension name='permissionswebservices' />
+		<extension name='previewwebservices' />
+		<extension name='smartedit' />
+		<extension name='smarteditaddon' />
+		<extension name='smarteditwebservices' />
 	</extensions>
 </hybrisconfig>
