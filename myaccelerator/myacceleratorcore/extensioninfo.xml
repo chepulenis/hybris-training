@@ -15,6 +15,8 @@
                 		
         
         <requires-extension name="solrserver"/>
+
+        <requires-extension name="myextension"/>
                 		
         
         <coremodule generated="true" manager="training.my.core.jalo.MyacceleratorCoreManager" packageroot="training.my.core"/>

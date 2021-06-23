@@ -538,4 +538,21 @@
 		<property name="itemCleanupHooks" ref="csTicketRetentionHooks"/>
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
+
+	<bean name="usersNumberHandler" class="training.my.core.handler.UsersNumberHandler"/>
+	<bean name="ordersNumberHandler" class="training.my.core.handler.OrdersNumberHandler"/>
+
+	<bean name="productCustomSizeValueProvider" class="training.my.core.search.solrfacetsearch.provider.impl.ProductCustomSizeValueProvider"  parent="abstractPropertyFieldValueProvider">
+		<property name="fieldNameProvider" ref="solrFieldNameProvider"/>
+	</bean>
+
+	<bean id="CustomCommerceSolrAutocompleteService"
+		  class="search.solrfacetsearch.impl.CustomSolrProductSearchAutocompleteService" >
+		<property name="facetSearchConfigService" ref="facetSearchConfigService" />
+		<property name="commonI18NService" ref="commonI18NService" />
+		<property name="solrAutoSuggestService" ref="solrAutoSuggestService" />
+		<property name="solrIndexedTypeCodeResolver" ref="solrIndexedTypeCodeResolver" />
+		<property name="solrFacetSearchConfigSelectionStrategy" ref="solrFacetSearchConfigSelectionStrategy" />
+	</bean>
+
 </beans>

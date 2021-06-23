@@ -1,5 +1,6 @@
 package training.my.service;
 
+import de.hybris.platform.core.model.order.OrderModel;
 import de.hybris.platform.core.model.user.UserModel;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 import de.hybris.platform.servicelayer.search.SearchResult;
@@ -12,8 +13,14 @@ public class MyUserService {
     FlexibleSearchService flexibleSearchService;
 
     public int getTotalNumberOfUsers() {
-        String query = "select {pk} from {user}";
+        final String query = "select {pk} from {user}";
         SearchResult<UserModel> searchResult = flexibleSearchService.search(query);
+        return searchResult.getCount();
+    }
+
+    public int getTotalNumberOfOrders() {
+        final String query = "select {pk} from {order}";
+        SearchResult<OrderModel> searchResult = flexibleSearchService.search(query);
         return searchResult.getCount();
     }
 }

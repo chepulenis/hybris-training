@@ -16,6 +16,8 @@ import de.hybris.platform.acceleratorcms.model.components.SimpleResponsiveBanner
 import de.hybris.platform.acceleratorcms.model.components.SubCategoryListComponentModel;
 import de.hybris.platform.cms2.model.contents.components.CMSLinkComponentModel;
 import de.hybris.platform.cms2lib.model.components.ProductCarouselComponentModel;
+import training.my.core.model.CurrentNumberOfOrdersModel;
+import training.my.core.model.CurrentNumberOfUsersModel;
 
 
 /**
@@ -55,6 +57,8 @@ public interface ControllerConstants
 			String SubCategoryListComponent = _Prefix + SubCategoryListComponentModel._TYPECODE + _Suffix; // NOSONAR
 			String SimpleResponsiveBannerComponent = _Prefix + SimpleResponsiveBannerComponentModel._TYPECODE + _Suffix; // NOSONAR
 			String CMSTabParagraphContainer = _Prefix + CMSTabParagraphContainerModel._TYPECODE + _Suffix; // NOSONAR
+			String CurrentNumberOfUsers = _Prefix + CurrentNumberOfUsersModel._TYPECODE + _Suffix;
+			String CurrentNumberOfOrders = _Prefix + CurrentNumberOfOrdersModel._TYPECODE + _Suffix;
 		}
 	}
 

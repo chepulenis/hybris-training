@@ -104,5 +104,51 @@
             </itemtype>
         </typegroup>
 
+        <typegroup name="NumberOfUsersAndOrdersGroup">
+            <itemtype code="CurrentNumberOfUsers" extends="SimpleCMSComponent"
+                      autocreate="true" generate="true"
+                      jaloclass="training.my.core.jalo.CurrentNumberOfUsers">
+                <description>Used to display current number of users</description>
+                <attributes>
+                    <attribute qualifier="usersHeaderText" type="java.lang.String">
+                        <defaultvalue>number of users:</defaultvalue>
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="numberOfUsers" type="java.lang.Integer">
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="dynamic" attributeHandler="usersNumberHandler" />
+                    </attribute>
+                </attributes>
+            </itemtype>
+            <itemtype code="CurrentNumberOfOrders" extends="SimpleCMSComponent"
+                      autocreate="true" generate="true"
+                      jaloclass="training.my.core.jalo.CurrentNumberOfOrders">
+                <description>Used to display current number of orders</description>
+                <attributes>
+                    <attribute qualifier="ordersHeaderText" type="java.lang.String">
+                        <defaultvalue>number of orders:</defaultvalue>
+                        <modifiers read="true" write="true" optional="false"/>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="numberOfOrders" type="java.lang.Integer">
+                        <modifiers read="true" write="true" optional="true"/>
+                        <persistence type="dynamic" attributeHandler="ordersNumberHandler" />
+                    </attribute>
+                </attributes>
+            </itemtype>
+        </typegroup>
+
+        <typegroup name="Product">
+            <itemtype code="Product" extends="Product" autocreate="false" generate="false">
+                <attributes>
+                    <attribute qualifier="customSize" type="java.lang.Double" generate="true" autocreate="true">
+                        <persistence type="property"/>
+                        <modifiers read="true" write="true" search="true" optional="true" unique="false"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+        </typegroup>
+        
     </itemtypes>
 </items>
