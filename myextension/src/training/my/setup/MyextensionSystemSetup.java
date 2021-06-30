@@ -5,7 +5,7 @@ package training.my.setup;
 
 import de.hybris.platform.core.initialization.SystemSetup;
 import training.my.constants.MyextensionConstants;
-import training.my.service.MyextensionService;
+import service.MyextensionService;
 
 import java.io.InputStream;
 

@@ -172,4 +172,13 @@
 		<property name="pagination" type="de.hybris.platform.commerceservices.search.pagedata.PaginationData"/>
 	</bean>
 
+	<bean class="training.my.returns.data.UsersListWsDTO">
+		<property name="usersWsDTOList" type="java.util.List&lt;de.hybris.platform.commercewebservicescommons.dto.user.UserWsDTO>"/>
+	</bean>
+
+	<bean class="training.my.returns.data.ProductsListWsDTO">
+		<property name="productsWsDTOList" type="java.util.List&lt;de.hybris.platform.commercewebservicescommons.dto.product.ProductListWsDTO>"/>
+	</bean>
+
+
 </beans>

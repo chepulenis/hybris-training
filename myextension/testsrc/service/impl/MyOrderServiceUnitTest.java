@@ -1,4 +1,4 @@
-package training.my.service.impl;
+package service.impl;
 
 import de.hybris.bootstrap.annotations.UnitTest;
 import de.hybris.platform.core.model.order.OrderModel;

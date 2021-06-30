@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
  */
-package training.my.service.impl;
+package service.impl;
 
 import de.hybris.platform.catalog.model.CatalogUnawareMediaModel;
 import de.hybris.platform.core.model.media.MediaModel;
@@ -13,7 +13,7 @@ import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Required;
-import training.my.service.MyextensionService;
+import service.MyextensionService;
 
 import java.io.InputStream;
 import java.util.Optional;

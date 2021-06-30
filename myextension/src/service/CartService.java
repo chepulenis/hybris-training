@@ -1,4 +1,4 @@
-package training.my.service;
+package service;
 
 import de.hybris.platform.core.model.order.CartModel;
 import de.hybris.platform.servicelayer.event.EventService;

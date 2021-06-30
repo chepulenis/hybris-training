@@ -1,11 +1,11 @@
-package training.my.service.impl;
+package service.impl;
 
 import de.hybris.platform.core.model.order.OrderModel;
 import de.hybris.platform.core.model.user.UserModel;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 import de.hybris.platform.servicelayer.search.SearchResult;
-import training.my.service.MyOrderService;
+import service.MyOrderService;
 
 import javax.annotation.Resource;
 import java.util.Collections;

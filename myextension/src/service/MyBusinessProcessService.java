@@ -1,4 +1,4 @@
-package training.my.service;
+package service;
 
 import de.hybris.platform.core.model.c2l.CurrencyModel;
 import de.hybris.platform.core.model.order.AbstractOrderEntryModel;

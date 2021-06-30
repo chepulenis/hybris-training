@@ -3,7 +3,7 @@ package training.my.core.handler;
 import de.hybris.platform.servicelayer.model.attribute.DynamicAttributeHandler;
 import training.my.core.model.CurrentNumberOfOrdersModel;
 
-import training.my.service.MyUserService;
+import service.MyUserService;
 
 import javax.annotation.Resource;
 

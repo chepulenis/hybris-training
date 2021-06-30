@@ -12,14 +12,14 @@
         <constructor-arg ref="myextensionService"/>
     </bean>
 
-    <bean id="myextensionService" class="training.my.service.impl.DefaultMyextensionService">
+    <bean id="myextensionService" class="service.impl.DefaultMyextensionService">
         <!-- setter injection example -->
         <property name="modelService" ref="modelService"/>
         <property name="mediaService" ref="mediaService"/>
         <property name="flexibleSearchService" ref="flexibleSearchService"/>
     </bean>
 
-    <bean name="myOrderService" class="training.my.service.impl.MyOrderServiceImpl">
+    <bean name="myOrderService" class="service.impl.MyOrderServiceImpl">
     </bean>
 
     <bean id="configurablePopulatorModification" class="de.hybris.platform.converters.config.ConfigurablePopulatorModification" abstract="true" init-method="initialize"/>
@@ -72,7 +72,7 @@
         <property name="typeCode" value="User"/>
     </bean>
 
-    <bean id="myUserService" class="training.my.service.MyUserService"/>
+    <bean id="myUserService" class="service.MyUserService"/>
 
     <bean id="currentNumberOfOrdersJob" class="training.my.cronjob.CurrentNumberOfOrdersJob" parent="abstractJobPerformable"/>
     <bean id="currentNumberOfUsersJob" class="training.my.cronjob.CurrentNumberOfUsersJob" parent="abstractJobPerformable"/>

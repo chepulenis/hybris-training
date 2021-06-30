@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
  */
-package training.my.service.impl;
+package service.impl;
 
 import de.hybris.bootstrap.annotations.IntegrationTest;
 import de.hybris.platform.core.model.media.MediaModel;
@@ -11,7 +11,7 @@ import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 import org.junit.Before;
 import org.junit.Test;
-import training.my.service.MyextensionService;
+import service.MyextensionService;
 
 import javax.annotation.Resource;
 

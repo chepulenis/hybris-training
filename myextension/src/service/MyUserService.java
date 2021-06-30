@@ -1,4 +1,4 @@
-package training.my.service;
+package service;
 
 import de.hybris.platform.core.model.order.OrderModel;
 import de.hybris.platform.core.model.user.UserModel;
@@ -23,4 +23,5 @@ public class MyUserService {
         SearchResult<OrderModel> searchResult = flexibleSearchService.search(query);
         return searchResult.getCount();
     }
+
 }

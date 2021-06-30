@@ -14,17 +14,19 @@
                 		
         
         <requires-extension name="ordermanagementfacades"/>
-                		
-        
+
+
         <coremodule generated="true" manager="de.hybris.platform.jalo.extension.GenericManager" packageroot="training.my"/>
                 		
         
-        <webmodule jspcompile="false" webroot="/mywebservices"/>
+        <webmodule jspcompile="false" webroot="/myws"/>
                 		
         
         		
         
         <meta key="modulegen-name" value="commercewebservices"/>
+		
+		
                 	
     
     </extension>

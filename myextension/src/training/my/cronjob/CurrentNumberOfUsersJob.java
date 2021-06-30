@@ -5,7 +5,7 @@ import de.hybris.platform.cronjob.enums.CronJobResult;
 import de.hybris.platform.cronjob.enums.CronJobStatus;
 import de.hybris.platform.servicelayer.cronjob.AbstractJobPerformable;
 import de.hybris.platform.servicelayer.cronjob.PerformResult;
-import training.my.service.MyUserService;
+import service.MyUserService;
 
 import javax.annotation.Resource;
 import java.util.logging.Logger;
