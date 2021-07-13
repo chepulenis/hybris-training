@@ -98,7 +98,7 @@ public abstract class AbstractFraudCheckAction<T extends OrderProcessModel> exte
 	}
 
 	@Override
-	public final String execute(final T process) throws RetryLaterException, Exception
+	public final String execute(final T process) throws Exception
 	{
 		return executeAction(process).toString();
 	}

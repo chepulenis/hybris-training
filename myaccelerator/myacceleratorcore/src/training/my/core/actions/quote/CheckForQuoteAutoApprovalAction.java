@@ -29,7 +29,7 @@ public class CheckForQuoteAutoApprovalAction extends AbstractSimpleDecisionActio
 	private static final Logger LOG = Logger.getLogger(CheckSellerApproverResponseOnQuoteAction.class);
 
 	@Override
-	public Transition executeAction(final QuoteProcessModel process) throws RetryLaterException, Exception
+	public Transition executeAction(final QuoteProcessModel process) throws Exception
 	{
 		Transition result;
 

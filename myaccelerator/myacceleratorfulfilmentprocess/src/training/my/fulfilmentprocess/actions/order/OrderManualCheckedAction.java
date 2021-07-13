@@ -38,7 +38,7 @@ public class OrderManualCheckedAction extends AbstractOrderAction<OrderProcessMo
 	}
 
 	@Override
-	public final String execute(final OrderProcessModel process) throws RetryLaterException, Exception
+	public final String execute(final OrderProcessModel process) throws Exception
 	{
 		return executeAction(process).toString();
 	}

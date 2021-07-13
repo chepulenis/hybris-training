@@ -57,10 +57,7 @@ public class SendOrderCompletedNotificationTest
 				if (item instanceof OrderCompletedEvent)
 				{
 					final OrderCompletedEvent event = (OrderCompletedEvent) item;
-					if (event.getProcess().equals(process))
-					{
-						return true;
-					}
+					return event.getProcess().equals(process);
 				}
 				return false;
 			}

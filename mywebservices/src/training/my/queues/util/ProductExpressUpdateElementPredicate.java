@@ -57,13 +57,8 @@ public class ProductExpressUpdateElementPredicate implements Predicate<ProductEx
 			return false;
 		}
 
-		if (!StringUtils.equals(element1.getCatalogId(), element2.getCatalogId()))
-		{
-			return false;
-		}
-
-		return true;
-	}
+        return StringUtils.equals(element1.getCatalogId(), element2.getCatalogId());
+    }
 
 	public ProductExpressUpdateElementData getProductExpressUpdateElementData()
 	{

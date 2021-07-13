@@ -66,7 +66,7 @@ public class CommerceHandlerMapping extends RequestMappingHandlerMapping
 		if (super.isHandler(beanType))
 		{
 			final ApiVersion v = AnnotationUtils.findAnnotation(beanType, ApiVersion.class);
-			return v == null ? true : v.value().equals(apiVersion);
+			return v == null || v.value().equals(apiVersion);
 		}
 
 		return false;
@@ -114,12 +114,7 @@ public class CommerceHandlerMapping extends RequestMappingHandlerMapping
 			return false;
 		}
 		final Integer methodPriority = getMethodPriorityValue(method);
-		if (maxPriority.equals(methodPriority))
-		{
-			return false;
-		}
-
-		return true;
+		return !maxPriority.equals(methodPriority);
 	}
 
 	/**

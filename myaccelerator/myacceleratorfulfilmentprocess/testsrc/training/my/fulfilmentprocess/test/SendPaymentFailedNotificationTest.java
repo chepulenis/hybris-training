@@ -56,10 +56,7 @@ public class SendPaymentFailedNotificationTest
 				if (item instanceof PaymentFailedEvent)
 				{
 					final PaymentFailedEvent event = (PaymentFailedEvent) item;
-					if (event.getProcess().equals(process))
-					{
-						return true;
-					}
+					return event.getProcess().equals(process);
 				}
 				return false;
 			}

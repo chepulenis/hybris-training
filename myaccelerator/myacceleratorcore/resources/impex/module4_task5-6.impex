@@ -1,21 +1,38 @@
-#task 5
+#Task 5
 
 $contentCatalog=electronicsContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 
 INSERT_UPDATE CurrentNumberOfUsers;name[unique=true]; $contentCV[unique=true];uid;usersHeaderText
-                                                    ; usersNumber;; usersNumber; Current number of users
+                                  ;usersNumber;;usersNumber;Current number of users
 
 INSERT_UPDATE ContentSlot ;$contentCV;uid[unique=true];cmsComponents(uid)
                           ;;CurrentNumberOfUsersSlot;usersNumber
 
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='homepage'];contentSlot(uid)[unique=true]
-                                ;;myacceleratorstorefront-Homepage;CurrentNumberOfUsersSlotForPage;;CurrentNumberOfUsersSlot
+                                ;;UsersPage;CurrentNumberOfUsersSlotForPage;;CurrentNumberOfUsersSlot
 
-#task 6
+#Task 6
 
-#INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;frontendTemplateName;restrictedPageTypes(code);active[default=true]
-#                          ;;ContentPage2Template;Content Page 2 Template;layout/contentLayout2Page;ContentPage
-#
-#INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default='true'];approvalStatus(code)[default='approved'];homepage[default='false']
-#                         ;;offersContentPage;Offers Content Page;OffersPageTemplate;offersCMSPage
+INSERT_UPDATE CurrentNumberOfOrders ;name[unique=true];$contentCV;uid;ordersHeaderText
+                                    ;ordersNumber;;ordersNumber;Current number of orders
+
+INSERT_UPDATE ContentSlot ;$contentCV;uid[unique=true];cmsComponents(uid)
+                          ;;CurrentNumberOfOrdersSlot;ordersNumber
+
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='homepage'];contentSlot(uid)[unique=true]
+                                ;;OrdersPage;CurrentNumberOfOrdersSlotForPage;;CurrentNumberOfOrdersSlot
+
+INSERT_UPDATE PageTemplate ;$contentCV;uid[unique=true];name;frontendTemplateName;restrictedPageTypes(code);active[default=true]
+                           ;;UsersAndOrdersTemplate;UsersAndOrdersTemplate;usersAndOrders/usersAndOrdersLayoutPage;ContentPage
+
+INSERT_UPDATE ContentPage ;$contentCV;uid[unique=true];name;masterTemplate(uid,$contentCV);label;defaultPage[default=true];approvalStatus(code)[default='approved'];homepage[default=false]
+                          ;;usersAndOrdersContentPage;usersAndOrdersContentPage;UsersAndOrdersTemplate;usersAndOrdersCMSPage
+
+INSERT_UPDATE ContentSlotName ;name[unique=true];template(uid,$contentCV)[unique=true][default='UsersAndOrdersTemplate'];validComponentTypes(code);compTypeGroup(code)
+                              ;numberOfUsers;;;wide
+                              ;numberOfOrders;;;wide
+
+INSERT_UPDATE ContentSlotForTemplate ;$contentCV;uid[default=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='UsersAndOrdersTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
+                                     ;;CurrentNumberOfOrdersSlot-currentNumberOfOrders;currentNumberOfOrders;;CurrentNumberOfOrdersSlot;true
+                                     ;;CurrentNumberOfUsersSlot-currentNumberOfUsers;currentNumberOfUsers;;CurrentNumberOfUsersSlot;true

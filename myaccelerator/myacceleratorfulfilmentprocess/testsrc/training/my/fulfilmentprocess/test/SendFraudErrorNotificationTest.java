@@ -55,10 +55,7 @@ public class SendFraudErrorNotificationTest
 				if (item instanceof FraudErrorEvent)
 				{
 					final FraudErrorEvent event = (FraudErrorEvent) item;
-					if (event.getProcess().equals(process))
-					{
-						return true;
-					}
+					return event.getProcess().equals(process);
 				}
 				return false;
 			}

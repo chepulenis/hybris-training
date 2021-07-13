@@ -26,7 +26,7 @@ public class CreateBuyerOfferAction extends AbstractProceduralAction<QuoteProces
 	private static final Logger LOG = Logger.getLogger(CheckSellerApproverResponseOnQuoteAction.class);
 
 	@Override
-	public void executeAction(final QuoteProcessModel process) throws RetryLaterException, Exception
+	public void executeAction(final QuoteProcessModel process) throws Exception
 	{
 		if (LOG.isDebugEnabled())
 		{

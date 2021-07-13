@@ -136,12 +136,8 @@ public class ProductExpressUpdateQueueTest
 			@Override
 			public boolean apply(@Nullable final ProductExpressUpdateElementData input)
 			{
-				if (input != null && input.getCode() != null && input.getCode().equals(PRODUCT1_CODE))
-				{
-					return true;
-				}
-				return false;
-			}
+                return input != null && input.getCode() != null && input.getCode().equals(PRODUCT1_CODE);
+            }
 		};
 		productExpressUpdateQueue.removeItems(productElement1Predicate);
 		Assert.assertEquals(productExpressUpdateQueue.getItems().size(), 3);

@@ -627,7 +627,7 @@ less.Parser = function Parser(env) {
                             if ((parserCurrentIndex < len - 1) && (input.charCodeAt(parserCurrentIndex + 1) == 47)) {
                                 return fail("unmatched `/*`");
                             }
-                            continue;
+
                     }
                 }
 
@@ -4893,7 +4893,7 @@ tree.mixin.Definition.prototype = {
                     if (isNamedFound) {
                         args.splice(i, 1);
                         i--;
-                        continue;
+
                     } else {
                         throw { type: 'Runtime', message: "Named argument for " + this.name +
                             ' ' + args[i].name + ' not found' };
@@ -7403,7 +7403,7 @@ function define(moduleName, deps, payload) {
     throw new Error("Module already defined: " + moduleName);
   }
   define.modules[moduleName] = payload;
-};
+}
 
 /**
  * The global store of un-instantiated modules
@@ -7766,7 +7766,7 @@ define('source-map/source-map-generator', ['require', 'exports', 'module' ,  'so
           && aGenerated.line > 0 && aGenerated.column >= 0
           && !aOriginal && !aSource && !aName) {
         // Case 1.
-        return;
+
       }
       else if (aGenerated && 'line' in aGenerated && 'column' in aGenerated
                && aOriginal && 'line' in aOriginal && 'column' in aOriginal
@@ -7774,7 +7774,7 @@ define('source-map/source-map-generator', ['require', 'exports', 'module' ,  'so
                && aOriginal.line > 0 && aOriginal.column >= 0
                && aSource) {
         // Cases 2 and 3.
-        return;
+
       }
       else {
         throw new Error('Invalid mapping: ' + JSON.stringify({
@@ -8243,7 +8243,7 @@ define('source-map/util', ['require', 'exports', 'module' , ], function(require,
     }
 
     return mappingA.generatedColumn - mappingB.generatedColumn;
-  };
+  }
   exports.compareByOriginalPositions = compareByOriginalPositions;
 
   /**
@@ -8284,7 +8284,7 @@ define('source-map/util', ['require', 'exports', 'module' , ], function(require,
     }
 
     return strcmp(mappingA.name, mappingB.name);
-  };
+  }
   exports.compareByGeneratedPositions = compareByGeneratedPositions;
 
 });

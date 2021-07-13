@@ -51,7 +51,7 @@ public class OrderConfirmationEventListener extends AbstractAcceleratorSiteEvent
 	protected void onSiteEvent(final OrderPlacedEvent orderPlacedEvent)
 	{
 		final OrderModel orderModel = orderPlacedEvent.getProcess().getOrder();
-		final OrderProcessModel orderProcessModel = (OrderProcessModel) getBusinessProcessService().createProcess(
+		final OrderProcessModel orderProcessModel = getBusinessProcessService().createProcess(
 				"orderConfirmationEmailProcess-" + orderModel.getCode() + "-" + System.currentTimeMillis(),
 				"orderConfirmationEmailProcess");
 		orderProcessModel.setOrder(orderModel);

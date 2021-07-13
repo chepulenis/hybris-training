@@ -39,7 +39,7 @@ public class QuoteBuyerSubmitEventListener extends AbstractEventListener<QuoteBu
 		final Map<String, Object> contextParams = new HashMap<String, Object>();
 		contextParams.put(MyacceleratorCoreConstants.QUOTE_USER_TYPE, event.getQuoteUserType());
 
-		final QuoteProcessModel quoteBuyerProcessModel = (QuoteProcessModel) getBusinessProcessService().createProcess(
+		final QuoteProcessModel quoteBuyerProcessModel = getBusinessProcessService().createProcess(
 				"quoteBuyerProcess" + "-" + event.getQuote().getCode() + "-" + event.getQuote().getStore().getUid() + "-"
 						+ System.currentTimeMillis(), MyacceleratorCoreConstants.QUOTE_BUYER_PROCESS, contextParams);
 

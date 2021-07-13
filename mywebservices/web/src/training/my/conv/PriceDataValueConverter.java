@@ -50,7 +50,7 @@ public class PriceDataValueConverter implements Converter
 			{
 				((JsonWriter) writer).startNode(nodeName, clazz);
 				context.convertAnother(object);
-				((JsonWriter) writer).endNode();
+				writer.endNode();
 			}
 			else
 			{

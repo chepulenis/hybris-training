@@ -56,7 +56,7 @@ public class RegistrationEventListener extends AbstractAcceleratorSiteEventListe
 	@Override
 	protected void onSiteEvent(final RegisterEvent registerEvent)
 	{
-		final StoreFrontCustomerProcessModel storeFrontCustomerProcessModel = (StoreFrontCustomerProcessModel) getBusinessProcessService()
+		final StoreFrontCustomerProcessModel storeFrontCustomerProcessModel = getBusinessProcessService()
 				.createProcess(
 						"customerRegistrationEmailProcess-" + registerEvent.getCustomer().getUid() + "-" + System.currentTimeMillis(),
 						"customerRegistrationEmailProcess");

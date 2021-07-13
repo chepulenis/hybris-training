@@ -46,7 +46,7 @@ public class UrlEncoderFilter extends OncePerRequestFilter
 		if (currentUrlEncoderDatas != null && !currentUrlEncoderDatas.isEmpty())
 		{
 			final String currentPattern = getSessionService().getAttribute(WebConstants.URL_ENCODING_ATTRIBUTES);
-			final String newPattern = getUrlEncoderFacade().calculateAndUpdateUrlEncodingData(request.getRequestURI().toString(),
+			final String newPattern = getUrlEncoderFacade().calculateAndUpdateUrlEncodingData(request.getRequestURI(),
 					request.getContextPath());
 			final String newPatternWithSlash = "/" + newPattern;
 			if (!StringUtils.equalsIgnoreCase(currentPattern, newPatternWithSlash))

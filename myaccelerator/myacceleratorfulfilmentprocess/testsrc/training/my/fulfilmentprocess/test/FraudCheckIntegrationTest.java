@@ -500,7 +500,7 @@ public class FraudCheckIntegrationTest extends ServicelayerTest
 
 	protected String submitOrderMock(final OrderModel order)
 	{
-		final OrderProcessModel businessProcessModel = (OrderProcessModel) businessProcessService.createProcess(
+		final OrderProcessModel businessProcessModel = businessProcessService.createProcess(
 				MyacceleratorFulfilmentProcessConstants.ORDER_PROCESS_NAME + order.getCode() + +System.currentTimeMillis(),
 				MyacceleratorFulfilmentProcessConstants.ORDER_PROCESS_NAME);
 		businessProcessModel.setOrder(order);

@@ -55,10 +55,7 @@ public class SendAuthorizationFailedNotificationTest
 				if (item instanceof AuthorizationFailedEvent)
 				{
 					final AuthorizationFailedEvent event = (AuthorizationFailedEvent) item;
-					if (event.getProcess().equals(process))
-					{
-						return true;
-					}
+					return event.getProcess().equals(process);
 				}
 				return false;
 			}

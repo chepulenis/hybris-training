@@ -41,7 +41,7 @@ public class CheckAuthorizeOrderPaymentTest
 	}
 
 	@Test
-	public void testExecuteActionOK() throws RetryLaterException, Exception
+	public void testExecuteActionOK() throws Exception
 	{
 		final OrderProcessModel businessProcessModel = new OrderProcessModel();
 
@@ -58,7 +58,7 @@ public class CheckAuthorizeOrderPaymentTest
 	}
 
 	@Test
-	public void testExecuteActionNOK() throws RetryLaterException, Exception
+	public void testExecuteActionNOK() throws Exception
 	{
 		final OrderProcessModel businessProcessModel = new OrderProcessModel();
 

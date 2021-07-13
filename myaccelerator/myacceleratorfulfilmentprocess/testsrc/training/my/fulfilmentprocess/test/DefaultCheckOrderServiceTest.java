@@ -34,7 +34,7 @@ public class DefaultCheckOrderServiceTest
 	{
 		order = new OrderModel();
 		order.setCalculated(Boolean.TRUE);
-		order.setEntries(Arrays.<AbstractOrderEntryModel> asList(new OrderEntryModel()));
+		order.setEntries(Arrays.asList(new OrderEntryModel()));
 		order.setDeliveryAddress(new AddressModel());
 		order.setPaymentInfo(new PaymentInfoModel());
 	}

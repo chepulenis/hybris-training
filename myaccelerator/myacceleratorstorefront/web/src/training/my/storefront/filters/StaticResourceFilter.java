@@ -142,7 +142,7 @@ public class StaticResourceFilter implements Filter
 		{
 			if (key.startsWith(HEADER_PROPERTIES_PREFIX))
 			{
-				final String headerKey = key.substring(HEADER_PROPERTIES_PREFIX.length(), key.length());
+				final String headerKey = key.substring(HEADER_PROPERTIES_PREFIX.length());
 				if (!headerKey.isEmpty())
 				{
 					headerParams.put(headerKey, config.getParameter(key));
@@ -158,7 +158,7 @@ public class StaticResourceFilter implements Filter
 		{
 			if (key.startsWith(HEADER_PROPERTIES_PREFIX))
 			{
-				final String headerKey = key.substring(HEADER_PROPERTIES_PREFIX.length(), key.length());
+				final String headerKey = key.substring(HEADER_PROPERTIES_PREFIX.length());
 				if (!headerKey.isEmpty())
 				{
 					if (newValue == null || newValue.isEmpty())

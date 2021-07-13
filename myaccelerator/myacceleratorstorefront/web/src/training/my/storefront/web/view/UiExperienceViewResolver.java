@@ -113,9 +113,9 @@ public class UiExperienceViewResolver extends InternalResourceViewResolver
 			if (properViewName.startsWith(ADDON))
 			{
 				properViewName = properViewName.replace(ADDON, ""); // ................................addon:/<extension-name>/cms/<component-view>....->..../<extension-name>/cms/<component-view>
-				properViewName = properViewName.substring(1, properViewName.length()); // ....................../<extension-name>/cms/<component-view>..........->....<extension-name>/cms/<component-view>
+				properViewName = properViewName.substring(1); // ....................../<extension-name>/cms/<component-view>..........->....<extension-name>/cms/<component-view>
 				final String extensionName = properViewName.substring(0, properViewName.indexOf('/')); // <extension-name>/cms/<component-view>...........->....<extension-name>
-				properViewName = properViewName.substring(properViewName.indexOf('/'), properViewName.length()); // ..<extension-name>/cms/<component-view>...........->..../cms/<component-view>
+				properViewName = properViewName.substring(properViewName.indexOf('/')); // ..<extension-name>/cms/<component-view>...........->..../cms/<component-view>
 				return getAddOnPrefix() + extensionName + "/" + StringUtils.remove(prefix, "/") + properViewName; // ..<addon-prefix>/<extension-name>/<ui-prefix>/cms/<component-view>
 			}
 			return prefix + properViewName;

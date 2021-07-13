@@ -245,7 +245,7 @@ public class SearchPageController extends AbstractSearchPageController
 	{
 		final AutocompleteResultData resultData = new AutocompleteResultData();
 
-		final SearchBoxComponentModel component = (SearchBoxComponentModel) cmsComponentService.getSimpleCMSComponent(componentUid);
+		final SearchBoxComponentModel component = cmsComponentService.getSimpleCMSComponent(componentUid);
 
 		if (component.isDisplaySuggestions())
 		{

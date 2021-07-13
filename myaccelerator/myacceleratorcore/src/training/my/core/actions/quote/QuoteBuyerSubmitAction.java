@@ -28,7 +28,7 @@ public class QuoteBuyerSubmitAction extends AbstractSimpleDecisionAction<QuotePr
 	private QuoteService quoteService;
 
 	@Override
-	public Transition executeAction(final QuoteProcessModel process) throws RetryLaterException, Exception
+	public Transition executeAction(final QuoteProcessModel process) throws Exception
 	{
 		Transition result;
 

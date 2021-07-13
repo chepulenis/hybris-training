@@ -54,7 +54,7 @@ public class CheckTransactionReviewStatusAction extends AbstractAction<OrderProc
 	}
 
 	@Override
-	public final String execute(final OrderProcessModel process) throws RetryLaterException, Exception
+	public final String execute(final OrderProcessModel process) throws Exception
 	{
 		return executeAction(process).toString();
 	}

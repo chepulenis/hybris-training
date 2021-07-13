@@ -35,16 +35,16 @@ public class FacetValueDataListConverter implements Converter
 			{
 				((JsonWriter) writer).startNode("count", Long.class);
 				context.convertAnother(Long.valueOf(facetValueData.getCount()));
-				((JsonWriter) writer).endNode();
+				writer.endNode();
 				((JsonWriter) writer).startNode("name", String.class);
 				context.convertAnother(facetValueData.getName());
-				((JsonWriter) writer).endNode();
+				writer.endNode();
 				((JsonWriter) writer).startNode("query", String.class);
-				((JsonWriter) writer).setValue(facetValueData.getQuery().getQuery().getValue());
-				((JsonWriter) writer).endNode();
+				writer.setValue(facetValueData.getQuery().getQuery().getValue());
+				writer.endNode();
 				((JsonWriter) writer).startNode("selected", Boolean.class);
 				context.convertAnother(Boolean.valueOf(facetValueData.isSelected()));
-				((JsonWriter) writer).endNode();
+				writer.endNode();
 			}
 			else
 			{

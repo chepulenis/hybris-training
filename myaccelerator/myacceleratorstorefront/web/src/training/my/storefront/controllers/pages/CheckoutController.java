@@ -277,7 +277,7 @@ public class CheckoutController extends AbstractCheckoutController
 
 		processEmailAddress(model, orderDetails);
 
-		final String continueUrl = (String) getSessionService().getAttribute(WebConstants.CONTINUE_URL);
+		final String continueUrl = getSessionService().getAttribute(WebConstants.CONTINUE_URL);
 		model.addAttribute(CONTINUE_URL_KEY, (continueUrl != null && !continueUrl.isEmpty()) ? continueUrl : ROOT);
 
 		final ContentPageModel checkoutOrderConfirmationPage = getContentPageForLabelOrId(CHECKOUT_ORDER_CONFIRMATION_CMS_PAGE_LABEL);

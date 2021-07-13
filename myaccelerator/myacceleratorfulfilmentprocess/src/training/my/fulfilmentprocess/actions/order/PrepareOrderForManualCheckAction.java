@@ -32,7 +32,7 @@ public class PrepareOrderForManualCheckAction extends AbstractProceduralAction<O
 	private EventService eventService;
 
 	@Override
-	public void executeAction(final OrderProcessModel process) throws RetryLaterException, Exception
+	public void executeAction(final OrderProcessModel process) throws Exception
 	{
 		ServicesUtil.validateParameterNotNull(process, "Process cannot be null");
 		final OrderModel order = process.getOrder();

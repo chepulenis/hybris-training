@@ -26,7 +26,7 @@ public class OrderRefundEventListener extends AbstractAcceleratorSiteEventListen
 	protected void onSiteEvent(final OrderCancelledEvent event)
 	{
 		final OrderModel orderModel = event.getProcess().getOrder();
-		final OrderProcessModel orderProcessModel = (OrderProcessModel) getBusinessProcessService().createProcess(
+		final OrderProcessModel orderProcessModel = getBusinessProcessService().createProcess(
 				"sendOrderRefundEmailProcess-" + orderModel.getCode() + "-" + System.currentTimeMillis(),
 				"sendOrderRefundEmailProcess");
 		orderProcessModel.setOrder(orderModel);

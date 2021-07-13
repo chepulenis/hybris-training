@@ -33,7 +33,7 @@ public class QuoteSalesRepSubmitEventListener extends AbstractEventListener<Quot
 			LOG.debug("Received QuoteSalesRepSubmitEvent..");
 		}
 
-		final QuoteProcessModel quoteSalesRepProcessModel = (QuoteProcessModel) getBusinessProcessService().createProcess(
+		final QuoteProcessModel quoteSalesRepProcessModel = getBusinessProcessService().createProcess(
 				"quoteSalesRepProcess" + "-" + event.getQuote().getCode() + "-" + event.getQuote().getStore().getUid() + "-"
 						+ System.currentTimeMillis(), MyacceleratorCoreConstants.QUOTE_SALES_REP_PROCESS);
 

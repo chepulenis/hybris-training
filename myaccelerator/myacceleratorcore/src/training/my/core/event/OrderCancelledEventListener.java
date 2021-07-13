@@ -26,7 +26,7 @@ public class OrderCancelledEventListener extends AbstractAcceleratorSiteEventLis
 	protected void onSiteEvent(final OrderCancelledEvent event)
 	{
 		final OrderModel orderModel = event.getProcess().getOrder();
-		final OrderProcessModel orderProcessModel = (OrderProcessModel) getBusinessProcessService().createProcess(
+		final OrderProcessModel orderProcessModel = getBusinessProcessService().createProcess(
 				"sendOrderCancelledEmailProcess-" + orderModel.getCode() + "-" + System.currentTimeMillis(),
 				"sendOrderCancelledEmailProcess");
 		orderProcessModel.setOrder(orderModel);

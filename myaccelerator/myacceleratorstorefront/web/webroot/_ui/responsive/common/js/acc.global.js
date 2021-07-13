@@ -160,7 +160,7 @@ function dropdownParent($this) {
     var $parent = selector && $(selector)
 
     return $parent && $parent.length ? $parent : $this.parent()
-  };
+  }
 
 function dropdownClearMenus(e) {
 	// if right click, exit
@@ -179,7 +179,7 @@ function dropdownClearMenus(e) {
 
       $parent.removeClass('open')
     })
-  };
+  }
 
  function dropdownToggle(e) {
 	var $this = $(this)
@@ -214,5 +214,5 @@ function dropdownClearMenus(e) {
     }
 
     return false
-};
+}
 //***** Dropdown ends *****

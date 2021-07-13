@@ -22,14 +22,14 @@ public class ConsignmentStatusConverterTest
 	@Test
 	public void testConvertFrom()
 	{
-		final ConsignmentStatus result = converter.convertFrom(stringStatus, (Type<ConsignmentStatus>) null, null);
+		final ConsignmentStatus result = converter.convertFrom(stringStatus, null, null);
 		Assert.assertEquals(status, result);
 	}
 
 	@Test
 	public void testConvertTo()
 	{
-		final String result = converter.convertTo(status, (Type<String>) null, null);
+		final String result = converter.convertTo(status, null, null);
 		Assert.assertEquals(stringStatus, result);
 	}
 }

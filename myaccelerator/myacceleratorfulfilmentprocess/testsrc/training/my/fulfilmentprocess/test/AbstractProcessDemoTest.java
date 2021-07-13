@@ -241,7 +241,7 @@ public abstract class AbstractProcessDemoTest extends ServicelayerTest
 
 	protected BusinessProcessModel createProcess(final OrderModel order)
 	{
-		final OrderProcessModel process = (OrderProcessModel) businessProcessService.createProcess(
+		final OrderProcessModel process = businessProcessService.createProcess(
 				"test" + System.currentTimeMillis(), MyacceleratorFulfilmentProcessConstants.ORDER_PROCESS_NAME);
 		process.setOrder(order);
 		modelService.saveAll(process, order);

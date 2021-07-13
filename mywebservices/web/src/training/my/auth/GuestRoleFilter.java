@@ -95,11 +95,7 @@ public class GuestRoleFilter extends OncePerRequestFilter
 		{
 			return false;
 		}
-		if (cm.getType().toString().equals(CustomerType.GUEST.getCode()))
-		{
-			return true;
-		}
-		return false;
+		return cm.getType().toString().equals(CustomerType.GUEST.getCode());
 	}
 
 	public AuthenticationEventPublisher getAuthenticationEventPublisher()

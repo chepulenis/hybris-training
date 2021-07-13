@@ -207,7 +207,7 @@ public class PickupInStoreController extends AbstractSearchPageController
 		final StoreFinderStockSearchPageData<PointOfServiceStockData> storeFinderStockSearchPageData;
 		storeFinderStockSearchPageData = new StoreFinderStockSearchPageData<>();
 		storeFinderStockSearchPageData.setProduct(productData);
-		storeFinderStockSearchPageData.setResults(Collections.<PointOfServiceStockData> emptyList());
+		storeFinderStockSearchPageData.setResults(Collections.emptyList());
 		storeFinderStockSearchPageData.setPagination(createEmptyPagination());
 
 		return storeFinderStockSearchPageData;

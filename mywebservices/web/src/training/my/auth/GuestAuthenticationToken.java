@@ -67,16 +67,9 @@ public class GuestAuthenticationToken extends AbstractAuthenticationToken
 		final GuestAuthenticationToken other = (GuestAuthenticationToken) obj;
 		if (email == null)
 		{
-			if (other.email != null)
-			{
-				return false;
-			}
+			return other.email == null;
 		}
-		else if (!email.equals(other.email))
-		{
-			return false;
-		}
-		return true;
+		else return email.equals(other.email);
 	}
 
 

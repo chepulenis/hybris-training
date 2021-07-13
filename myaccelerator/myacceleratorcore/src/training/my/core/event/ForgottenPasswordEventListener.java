@@ -57,7 +57,7 @@ public class ForgottenPasswordEventListener extends AbstractAcceleratorSiteEvent
 	@Override
 	protected void onSiteEvent(final ForgottenPwdEvent event)
 	{
-		final ForgottenPasswordProcessModel forgottenPasswordProcessModel = (ForgottenPasswordProcessModel) getBusinessProcessService()
+		final ForgottenPasswordProcessModel forgottenPasswordProcessModel = getBusinessProcessService()
 				.createProcess("forgottenPassword-" + event.getCustomer().getUid() + "-" + System.currentTimeMillis(),
 						"forgottenPasswordEmailProcess");
 		forgottenPasswordProcessModel.setSite(event.getSite());

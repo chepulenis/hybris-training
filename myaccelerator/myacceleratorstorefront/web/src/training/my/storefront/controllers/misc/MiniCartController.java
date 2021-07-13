@@ -74,7 +74,7 @@ public class MiniCartController extends AbstractController
 		final CartData cartData = cartFacade.getSessionCart();
 		model.addAttribute("cartData", cartData);
 
-		final MiniCartComponentModel component = (MiniCartComponentModel) cmsComponentService.getSimpleCMSComponent(componentUid);
+		final MiniCartComponentModel component = cmsComponentService.getSimpleCMSComponent(componentUid);
 
 		final List entries = cartData.getEntries();
 		if (entries != null)

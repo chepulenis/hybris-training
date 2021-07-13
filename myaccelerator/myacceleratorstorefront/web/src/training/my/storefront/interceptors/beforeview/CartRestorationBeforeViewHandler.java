@@ -63,7 +63,7 @@ public class CartRestorationBeforeViewHandler implements BeforeViewHandler
 	{
 		for (final String targetPage : getPagesToShowModifications())
 		{
-			if (StringUtils.contains(request.getRequestURI().toString(), targetPage))
+			if (StringUtils.contains(request.getRequestURI(), targetPage))
 			{
 				return Boolean.TRUE;
 			}

@@ -30,7 +30,7 @@ public class AnalyticsPropertiesBeforeViewHandler implements BeforeViewHandler
 	// Listener - listens to changes on the frontend and update the MapCache.
 	private ConfigIntf.ConfigChangeListener cfgChangeListener;
 
-	private static Map<String, String> analyticsPropertiesMapCache = new HashMap<>();
+	private static final Map<String, String> analyticsPropertiesMapCache = new HashMap<>();
 
 	private static final String ANALYTICS_TRACKING_ID = "googleAnalyticsTrackingId";
 	private static final String GOOGLE_PREFIX = "googleAnalyticsTrackingId";

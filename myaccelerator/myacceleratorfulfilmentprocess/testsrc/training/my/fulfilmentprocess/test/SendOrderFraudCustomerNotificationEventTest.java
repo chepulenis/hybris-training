@@ -56,10 +56,7 @@ public class SendOrderFraudCustomerNotificationEventTest
 				if (item instanceof OrderFraudCustomerNotificationEvent)
 				{
 					final OrderFraudCustomerNotificationEvent event = (OrderFraudCustomerNotificationEvent) item;
-					if (event.getProcess().equals(process))
-					{
-						return true;
-					}
+					return event.getProcess().equals(process);
 				}
 				return false;
 			}

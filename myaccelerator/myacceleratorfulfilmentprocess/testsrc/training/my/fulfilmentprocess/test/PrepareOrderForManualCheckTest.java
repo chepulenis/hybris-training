@@ -35,7 +35,7 @@ public class PrepareOrderForManualCheckTest {
 	}
 	
 	@Test
-	public void testExecute() throws RetryLaterException, Exception {
+	public void testExecute() throws Exception {
 		
 		final OrderProcessModel orderProcess = new OrderProcessModel();
 		final OrderModel order = new OrderModel();
@@ -46,13 +46,13 @@ public class PrepareOrderForManualCheckTest {
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
-	public void testExecuteNullProcess() throws RetryLaterException, Exception {
+	public void testExecuteNullProcess() throws Exception {
 		
 		prepareOrderForManualCheck.executeAction(null);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
-	public void testExecuteNullOrder() throws RetryLaterException, Exception {
+	public void testExecuteNullOrder() throws Exception {
 		
 		prepareOrderForManualCheck.executeAction(new OrderProcessModel());
 	}

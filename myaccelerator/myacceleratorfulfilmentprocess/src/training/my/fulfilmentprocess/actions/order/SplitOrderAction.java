@@ -56,7 +56,7 @@ public class SplitOrderAction extends AbstractProceduralAction<OrderProcessModel
 		int index = 0;
 		for (final ConsignmentModel consignment : consignments)
 		{
-			final ConsignmentProcessModel subProcess = getBusinessProcessService().<ConsignmentProcessModel> createProcess(
+			final ConsignmentProcessModel subProcess = getBusinessProcessService().createProcess(
 
 					process.getCode() + "_" + (++index), MyacceleratorFulfilmentProcessConstants.CONSIGNMENT_SUBPROCESS_NAME);
 

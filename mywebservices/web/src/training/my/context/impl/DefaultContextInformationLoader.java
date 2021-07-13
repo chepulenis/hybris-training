@@ -122,7 +122,7 @@ public class DefaultContextInformationLoader implements ContextInformationLoader
 		{
 			throw new IllegalStateException("No current base store was set!");
 		}
-		return currentBaseStore.getLanguages() == null ? Collections.<LanguageModel>emptySet() : currentBaseStore.getLanguages();
+		return currentBaseStore.getLanguages() == null ? Collections.emptySet() : currentBaseStore.getLanguages();
 	}
 
 	@Override

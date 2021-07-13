@@ -101,11 +101,7 @@ public class ProductCarouselComponentControllerTest
 				{
 					return false;
 				}
-				if (!options.get(1).equals(ProductOption.PRICE))
-				{
-					return false;
-				}
-				return true;
+				return options.get(1).equals(ProductOption.PRICE);
 			}
 			return false;
 		}

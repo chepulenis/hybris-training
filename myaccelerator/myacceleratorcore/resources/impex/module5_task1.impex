@@ -32,26 +32,3 @@ INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[
 INSERT_UPDATE SolrSearchQueryProperty; indexedProperty(name, solrIndexedType(identifier))[unique = true]; searchQueryTemplate(name, indexedType(identifier))[unique = true][default = DEFAULT:$solrIndexedType]; facet[default = true]; facetType(code); includeInResponse[default = true]; facetDisplayNameProvider             ; facetSortProvider; facetTopValuesProvider
                                      ; customSize:$solrIndexedType                                            ;                                                                                                      ;                      ; MultiSelectOr  ;                                  ; categoryFacetDisplayNameProvider ; defaultTopValuesProvider
 
-#INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];type(code);sortableType(code);currency[default=false];localized[default=false];multiValue[default=false];facet[default=false];facetType(code);facetSort(code);priority;visible;fieldValueProvider;customFacetSortProvider;rangeSets(name);$classAttributeAssignment
-#                                 ; $solrIndexedType                  ;customSize              ;double;; ;    ; ;true;MultiSelectOr;Custom;1000;true;productCustomSizeValueProvider;numericFacetSortPrrangeSets(name);customSizeRanges
-
-
-#INSERT_UPDATE SolrSearchQueryProperty;indexedProperty(name, solrIndexedType(identifier))[unique=true];facet[default=true];facetType(code);priority;facetDisplayNameProvider;facetSortProvider;facetTopValuesProvider;includeInResponse[default=true];searchQueryTemplate(name, indexedType(identifier))[unique=true][default=DEFAULT:$solrIndexedType]
-#                                     ; customSize:$solrIndexedType		;	;MultiSelectOr	;1000;	;numericFacetSortProviderDesc	;;;
-
-
-#id:electronicsProductCatalog/*/816802
-
-#INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true]; name[unique = true]    ; type(code); facet[default=true]; multiValue; priority; fieldValueProvider                   ; valueProviderParameter                                              ; facetDisplayNameProvider                    ; facetType(code); facetSort(code); visible[default=true]
-#;electronicsProductType;Megapixel, 63          ;double;; ;    ; ;true;MultiSelectOr;Custom;1000;true;commerceClassificationPropertyValueProvider;numericFacetSortPrrangeSets(name)
-
-#INSERT_UPDATE SolrSearchQueryProperty;indexedProperty(name, solrIndexedType(identifier))[unique=true];facet[default=true];facetType(code);priority;facetDisplayNameProvider;facetSortProvider;facetTopValuesProvider;includeInResponse[default=true];searchQueryTemplate(name, indexedType(identifier))[unique=true][default=DEFAULT:$solrIndexedType]
-#                                     ;Megapixel, 63:$solrIndexedType			;	;MultiSelectOr	;1000;	;numericFacetSortProviderDesc	;;;
-
-#INSERT_UPDATE SolrSearchQueryProperty;indexedProperty(name, solrIndexedType(identifier))[unique=true];facet[default=true];facetType(code);priority;facetDisplayNameProvider;facetSortProvider;facetTopValuesProvider;includeInResponse[default=true];searchQueryTemplate(name, indexedType(identifier))[unique=true][default=DEFAULT:$solrIndexedType]
-#;price:$solrIndexedType ; ;MultiSelectOrr ;1 ; ; ; ;;
-
-
-
-#INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];type(code);sortableType(code);currency[default=false];localized[default=false];multiValue[default=false];useForSpellchecking[default=false];useForAutocomplete[default=false];fieldValueProvider;valueProviderParameter;ftsPhraseQuery[default=false];ftsPhraseQueryBoost;ftsQuery[default=false];ftsQueryBoost;ftsFuzzyQuery[default=false];ftsFuzzyQueryBoost;ftsWildcardQuery[default=false];ftsWildcardQueryType(code)[default=POSTFIX];ftsWildcardQueryBoost;ftsWildcardQueryMinTermLength
-#                                 ;$solrIndexedType; customSize               ;double ;            ;    ;    ;    ;    ;    ;                                       ;              ;    ;   ;    ;   ;    ;  ;    ;   ;

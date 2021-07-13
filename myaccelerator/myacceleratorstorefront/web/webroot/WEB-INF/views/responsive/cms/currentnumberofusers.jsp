@@ -4,5 +4,5 @@
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags" %>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
 
-<h1>${usersHeaderText}</h1>
-<h1>${numberOfUsers}</h1>
+<p>${usersHeaderText}</p>
+<p>${numberOfUsers}</p>

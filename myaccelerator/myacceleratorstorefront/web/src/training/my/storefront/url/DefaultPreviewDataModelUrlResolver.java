@@ -114,10 +114,7 @@ public class DefaultPreviewDataModelUrlResolver implements UrlResolver<PreviewDa
 			}
 
 			final String urlForLabel = checkPageLabel(page, pageMapping);
-			if (urlForLabel != null)
-			{
-				return urlForLabel;
-			}
+			return urlForLabel;
 		}
 		return null;
 	}

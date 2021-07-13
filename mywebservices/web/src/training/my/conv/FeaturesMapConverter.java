@@ -26,12 +26,12 @@ public class FeaturesMapConverter implements Converter
 			if (writer instanceof JsonWriter)
 			{
 				((JsonWriter) writer).startNode("key", String.class);
-				((JsonWriter) writer).setValue(entry.getKey());
-				((JsonWriter) writer).endNode();
+				writer.setValue(entry.getKey());
+				writer.endNode();
 
 				((JsonWriter) writer).startNode("value", String.class);
-				((JsonWriter) writer).setValue(entry.getValue());
-				((JsonWriter) writer).endNode();
+				writer.setValue(entry.getValue());
+				writer.endNode();
 			}
 			else
 			{

@@ -27,11 +27,11 @@ public class SpellingSuggestionDataConverter implements Converter
 		if (writer instanceof JsonWriter)
 		{
 			((JsonWriter) writer).startNode("query", String.class);
-			((JsonWriter) writer).setValue(spellingSuggestionData.getQuery().getQuery().getValue());
-			((JsonWriter) writer).endNode();
+			writer.setValue(spellingSuggestionData.getQuery().getQuery().getValue());
+			writer.endNode();
 			((JsonWriter) writer).startNode("suggestion", String.class);
-			((JsonWriter) writer).setValue(spellingSuggestionData.getSuggestion());
-			((JsonWriter) writer).endNode();
+			writer.setValue(spellingSuggestionData.getSuggestion());
+			writer.endNode();
 		}
 		else
 		{

@@ -238,7 +238,7 @@ ACC.savedcarts = {
 		if (cartIdRowMapping && refresh) {
 			var interval = $(".js-uploading-saved-carts-update").data("refreshInterval");
 			var arrCartIdAndRow = cartIdRowMapping.split(',');
-			var mapCartRow = new Object();
+			var mapCartRow = {};
 			var cartCodes = [];
 			for (i = 0; i < arrCartIdAndRow.length; i++) {
 				var arrValue = arrCartIdAndRow[i].split(":");
@@ -291,7 +291,7 @@ ACC.savedcarts = {
 							$(document).find(rowSelector + " .js-delete-saved-cart").removeClass(hidden);
 						}
 					}
-				};
+				}
 				
 				if (cartCodes.length > 0) {
 					setTimeout(function() {ACC.savedcarts.refreshWorker(cartCodes, mapCartRow, interval)}, interval);

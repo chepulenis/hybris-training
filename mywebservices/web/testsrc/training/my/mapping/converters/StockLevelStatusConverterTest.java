@@ -22,14 +22,14 @@ public class StockLevelStatusConverterTest
 	@Test
 	public void testConvertFrom()
 	{
-		final StockLevelStatus result = converter.convertFrom(stringStatus, (Type<StockLevelStatus>) null, null);
+		final StockLevelStatus result = converter.convertFrom(stringStatus, null, null);
 		Assert.assertEquals(status, result);
 	}
 
 	@Test
 	public void testConvertTo()
 	{
-		final String result = converter.convertTo(status, (Type<String>) null, null);
+		final String result = converter.convertTo(status, null, null);
 		Assert.assertEquals(stringStatus, result);
 	}
 }

@@ -9,6 +9,7 @@ import de.hybris.platform.commerceservices.model.process.StoreFrontCustomerProce
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 
 /**
@@ -41,7 +42,7 @@ public class ForgottenPasswordEmailContext extends CustomerEmailContext
 
 	public String getURLEncodedToken() throws UnsupportedEncodingException
 	{
-		return URLEncoder.encode(token, "UTF-8");
+		return URLEncoder.encode(token, StandardCharsets.UTF_8);
 	}
 
 	public String getRequestResetPasswordUrl() throws UnsupportedEncodingException

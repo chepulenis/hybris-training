@@ -44,18 +44,18 @@ public class OrderManualCheckedTest {
 	}
 
 	@Test(expected=IllegalArgumentException.class)
-	public void testOrderCheckedNullProcess() throws RetryLaterException, Exception {
+	public void testOrderCheckedNullProcess() throws Exception {
 		action.execute(null);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
-	public void testOrderCheckedNullOrder() throws RetryLaterException, Exception {
+	public void testOrderCheckedNullOrder() throws Exception {
 		final OrderProcessModel process = new OrderProcessModel();
 		action.execute(process);
 	}
 	
 	@Test
-	public void testOrderCheckedFraud() throws RetryLaterException, Exception {
+	public void testOrderCheckedFraud() throws Exception {
 
 		final OrderProcessModel process = new OrderProcessModel();
 		final OrderModel fraudOrder = new OrderModel();
@@ -68,7 +68,7 @@ public class OrderManualCheckedTest {
 	}
 	
 	@Test
-	public void testOrderCheckedOK() throws RetryLaterException, Exception {
+	public void testOrderCheckedOK() throws Exception {
 
 		final OrderProcessModel process = new OrderProcessModel();
 		final OrderModel okOrder = new OrderModel();
@@ -80,7 +80,7 @@ public class OrderManualCheckedTest {
 	}
 	
 	@Test
-	public void testOrderUndefined() throws RetryLaterException, Exception {
+	public void testOrderUndefined() throws Exception {
 
 		final OrderProcessModel process = new OrderProcessModel();
 		final OrderModel undefinedOrder = new OrderModel();

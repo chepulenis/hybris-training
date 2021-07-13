@@ -82,7 +82,7 @@ ACC.cart = {
 
         var targetUrl = gridEntries.data("target-url");
 
-        var mapCodeQuantity = new Object();
+        var mapCodeQuantity = {};
         for (var i = 0; i < arrSubEntries.length; i++) {
             var arrValue = arrSubEntries[i].split(":");
             mapCodeQuantity[arrValue[0]] = arrValue[1];

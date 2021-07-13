@@ -34,7 +34,7 @@ public class QuoteSellerApprovalSubmitEventListener extends AbstractEventListene
 			LOG.debug("Received QuoteSellerApprovalSubmitEvent..");
 		}
 
-		final QuoteProcessModel quoteSellerApprovalProcess = (QuoteProcessModel) getBusinessProcessService()
+		final QuoteProcessModel quoteSellerApprovalProcess = getBusinessProcessService()
 				.createProcess("quoteSellerApprovalProcess" + "-" + event.getQuote().getCode() + "-"
 						+ event.getQuote().getStore().getUid() + "-" + System.currentTimeMillis(), QUOTE_SELLER_APPROVER_PROCESS);
 
